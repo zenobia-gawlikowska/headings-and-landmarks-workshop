@@ -15,7 +15,7 @@ This repo is the hands-on material for a workshop on getting it right.
 | [`exercises/broken.html`](exercises/broken.html) | A library event page with **broken** headings and landmarks (on purpose). |
 | [`exercises/fixed.html`](exercises/fixed.html) | The **same page, same look**, with correct structure. Comments in the source explain each choice. |
 | [`exercises/worksheet.html`](exercises/worksheet.html) | Audit checklist for exercise 3. |
-| [`exercises/playground.html`](exercises/playground.html) | An HTML editor with live preview and structure report, loaded with the broken page for students to fix. |
+| [`exercises/playground.html`](exercises/playground.html) | An HTML editor with live preview and structure report, loaded with the broken page for students to fix. **Full screen** shows the edited page on its own, so screen reader lists contain only its headings and landmarks. |
 | [`exercises/answers.html`](exercises/answers.html) | Every problem on the broken page, what the user hears, and the fix. |
 | [`assets/inspector.js`](assets/inspector.js) | A small structure inspector: lists headings and landmarks and flags common problems. |
 
