@@ -273,6 +273,26 @@ pre {
   font: 0.75rem/1.6 ui-monospace, Menlo, monospace; text-align: center;
 }
 
+.pg-pane-head { display: flex; align-items: baseline; gap: 0.5rem; margin-bottom: 0.5rem; }
+.page .pg-pane .pg-pane-head h2 { margin: 0; }
+.pg-full-open {
+  margin-left: auto; font: inherit; font-size: 0.85rem; font-weight: 600; cursor: pointer;
+  background: var(--bg); color: var(--text); border: 1px solid var(--border); border-radius: 6px;
+  padding: 0.15rem 0.6rem;
+}
+.pg-full {
+  width: 100vw; height: 100vh; height: 100dvh; max-width: none; max-height: none;
+  margin: 0; padding: 0; border: 0; background: var(--bg); color: var(--text);
+}
+.pg-full[open] { display: flex; flex-direction: column; }
+.pg-full::backdrop { background: var(--bg); }
+.pg-full-bar {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.25rem 1rem;
+  padding: 0.35rem 1rem; background: var(--surface); border-bottom: 1px solid var(--border); font-size: 0.9rem;
+}
+.pg-full-bar .button { padding: 0.3rem 0.75rem; }
+#pg-full-frame { flex: 1; width: 100%; border: 0; background: #fff; }
+
 /* ---------- Demo page: "Riverside Library" ---------- */
 /* Shared by exercises/broken.html and exercises/fixed.html */
 

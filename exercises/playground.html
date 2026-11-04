@@ -55,11 +55,16 @@
       </section>
 
       <section class="pg-pane pg-preview" aria-labelledby="pg-preview-h">
-        <h2 id="pg-preview-h">Preview</h2>
+        <div class="pg-pane-head">
+          <h2 id="pg-preview-h">Preview</h2>
+          <!-- Kept out of the h2 so the heading's name stays just "Preview". -->
+          <button type="button" class="pg-full-open" id="pg-full-open">Full screen</button>
+        </div>
         <iframe id="pg-frame" title="Preview of your page" sandbox="allow-same-origin"></iframe>
         <p class="pg-hint">
-          Screen reader tip: move into the preview and use heading (<kbd>H</kbd>) and landmark
-          (<kbd>D</kbd> in NVDA, rotor in VoiceOver) navigation as usual.
+          Screen reader tip: use <strong>Full screen</strong>, then heading (<kbd>H</kbd>) and landmark
+          (<kbd>D</kbd> in NVDA, rotor in VoiceOver) navigation. Full screen hides the playground,
+          so the headings and landmarks lists show only your page.
         </p>
       </section>
 
@@ -70,6 +75,16 @@
     </div>
 
     <p class="visually-hidden" role="status" id="pg-status"></p>
+
+    <!-- A modal dialog makes the rest of the playground inert, so a screen reader's
+         headings and landmarks lists contain only the page being edited. -->
+    <dialog class="pg-full" id="pg-full" aria-label="Your page, full screen">
+      <div class="pg-full-bar">
+        <span>Full-screen preview · press <kbd>Esc</kbd> to go back to the editor</span>
+        <button type="button" class="button" id="pg-full-close">Close full screen</button>
+      </div>
+      <iframe id="pg-full-frame" title="Your page" sandbox="allow-same-origin"></iframe>
+    </dialog>
 
     <div class="callout">
       <p>

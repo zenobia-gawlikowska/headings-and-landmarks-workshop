@@ -227,6 +227,27 @@
     }
   });
 
+  // ---------- full-screen preview ----------
+
+  var full = document.getElementById("pg-full");
+  var fullFrame = document.getElementById("pg-full-frame");
+
+  document.getElementById("pg-full-open").addEventListener("click", function () {
+    fullFrame.srcdoc = editor.value;
+    full.showModal();
+  });
+  document.getElementById("pg-full-close").addEventListener("click", function () { full.close(); });
+  full.addEventListener("close", function () { fullFrame.srcdoc = ""; });
+
+  fullFrame.addEventListener("load", function () {
+    var doc = fullFrame.contentDocument;
+    if (!doc || !doc.body || !full.open) return;
+    // Esc pressed inside the page doesn't reach the dialog, so listen for it there too.
+    doc.addEventListener("keydown", function (e) { if (e.key === "Escape") full.close(); });
+    // Start inside the page, so screen reader navigation begins there.
+    fullFrame.focus();
+  });
+
   // ---------- toolbar ----------
 
   document.getElementById("pg-run").addEventListener("click", function () { update(true); });
