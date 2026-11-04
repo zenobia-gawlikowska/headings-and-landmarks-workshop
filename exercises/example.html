@@ -2,29 +2,47 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- meta-viewport-large issue -->
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
   <title>Summer Community Workshops 2026 – Riverside Library (broken structure)</title>
+
   <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
-  <!--
-    EXERCISE PAGE — BROKEN STRUCTURE (on purpose!)
-    This page contains heading and landmark issues for accessibility testing.
-  -->
+
+  <!-- skip-link issue: target does not exist / is not focusable -->
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
   <div class="demo-banner" data-hl-ignore>
     <div class="wrap">
       <span><strong>Exercise page:</strong> broken structure (on purpose).</span>
       <span>
-        <button type="button" class="button" data-toggle-inspector aria-expanded="false">Show page structure</button>
-        <a href="../index.html#exercises">Back to the workshop</a>
+        <button
+          type="button"
+          class="button"
+          data-toggle-inspector
+          aria-expanded="false">
+          Show page structure
+        </button>
+
+        <a href="../index.html#exercises">
+          Back to the workshop
+        </a>
       </span>
     </div>
   </div>
 
   <div class="lib-top">
     <div class="wrap">
-      <h1 class="lib-logo"><a href="#">Riverside Library</a></h1>
+
+      <!-- H1 #1 -->
+      <h1 class="lib-logo">
+        <a href="#">Riverside Library</a>
+      </h1>
 
       <div class="lib-nav">
         <ul class="lib-menu">
@@ -36,37 +54,59 @@
       </div>
 
       <form class="lib-search" action="#">
-        <label for="q" class="visually-hidden">Search the catalogue</label>
-        <input id="q" type="search" placeholder="Search the catalogue">
-        <button type="submit">Search</button>
+        <label for="q" class="visually-hidden">
+          Search the catalogue
+        </label>
+
+        <input
+          id="q"
+          type="search"
+          placeholder="Search the catalogue">
+
+        <button type="submit">
+          Search
+        </button>
       </form>
+
     </div>
   </div>
 
   <div class="wrap">
+
     <nav class="lib-crumbs">
       <ol>
         <li><a href="#">Home</a></li>
         <li><a href="#">Community</a></li>
         <li>Summer Community Workshops</li>
       </ol>
+
+      <!-- landmark-banner-is-top-level issue -->
+      <header class="promo-banner">
+        <p>Free workshops all weekend</p>
+      </header>
     </nav>
 
     <div class="lib-layout">
+
       <div class="content">
-        <div class="t-page">Summer Community Workshops 2026</div>
+
+        <!-- H1 #2 -->
+        <h1 class="t-page">
+          Summer Community Workshops 2026
+        </h1>
 
         <p class="lib-meta">
           20–21 June · Riverside Library Learning Centre · Free admission
         </p>
 
-        <h4 class="t-section">About the workshops</h4>
+        <h4 class="t-section">
+          About the workshops
+        </h4>
 
         <p>
           Join local artists, makers and volunteers for a weekend of hands-on
           workshops designed to help people learn new skills and connect with
-          others in the community. Activities are suitable for beginners and
-          experienced participants alike.
+          others in the community.
         </p>
 
         <p>
@@ -74,70 +114,89 @@
           and require advance registration at the information desk or by phone.
         </p>
 
-        <p class="t-section"><b>Workshop schedule</b></p>
+        <!-- presentation-role-conflict issue -->
+        <div role="presentation" tabindex="0">
+          Community notice board
+        </div>
 
-        <h2 class="t-sub">Saturday 20 June</h2>
+        <p class="t-section">
+          <b>Workshop schedule</b>
+        </p>
+
+        <h2 class="t-sub">
+          Saturday 20 June
+        </h2>
 
         <ul class="lib-events">
           <li>
             <span class="when">10:00 · Studio Room</span>
             Introduction to watercolour painting
           </li>
+
           <li>
             <span class="when">12:30 · Learning Centre</span>
             Community gardening and urban growing tips
           </li>
+
           <li>
             <span class="when">15:00 · Room 2</span>
             Beginner photography workshop (registration required)
           </li>
         </ul>
 
-        <h2 class="t-sub">Sunday 21 June</h2>
+        <h2 class="t-sub">
+          Sunday 21 June
+        </h2>
 
         <ul class="lib-events">
           <li>
             <span class="when">11:00 · Studio Room</span>
             Creative journaling and sketchbook techniques
           </li>
+
           <li>
             <span class="when">13:00 · Learning Centre</span>
             Digital skills session for everyday life
           </li>
+
           <li>
             <span class="when">16:00 · Café</span>
             Community showcase and networking event
           </li>
         </ul>
 
-        <h5 class="t-section">Venue information</h5>
+        <h5 class="t-section">
+          Venue information
+        </h5>
 
         <p>
           Riverside Library is located beside Central Park and can be reached
-          by bus routes 4 and 12. Accessible parking spaces are available near
-          the main entrance.
+          by bus routes 4 and 12.
         </p>
 
         <h3 class="t-sub"></h3>
 
         <p>
           Accessible workstations are available throughout the venue.
-          Assistive listening systems can be provided for selected sessions
-          upon request.
+          Assistive listening systems can be provided upon request.
         </p>
 
         <div class="lib-side-box">
-          <strong class="t-side" style="display:block">Opening hours</strong>
+          <strong class="t-side" style="display:block">
+            Opening hours
+          </strong>
 
           <table class="lib-hours">
             <tr>
               <th scope="row">Mon–Fri</th>
               <td>09:00–20:00</td>
             </tr>
+
             <tr>
               <th scope="row">Saturday</th>
               <td>10:00–18:00</td>
             </tr>
+
             <tr>
               <th scope="row">Sunday</th>
               <td>11:00–17:00</td>
@@ -146,33 +205,63 @@
         </div>
 
         <div class="lib-side-box">
-          <h6 class="t-side">Related activities</h6>
+          <h6 class="t-side">
+            Related activities
+          </h6>
+
           <ul>
             <li><a href="#">Local history talks</a></li>
             <li><a href="#">Family craft afternoons</a></li>
             <li><a href="#">Digital learning sessions</a></li>
           </ul>
         </div>
+
+        <!-- tabindex issue -->
+        <p>
+          <a href="#" tabindex="5">
+            Featured workshop registration
+          </a>
+        </p>
+
       </div>
 
       <div class="sidebar">
+
         <div class="lib-side-box">
-          <div class="t-side">Get the newsletter</div>
+          <div class="t-side">
+            Get the newsletter
+          </div>
 
           <form class="lib-newsletter" action="#">
-            <label for="email">Email address</label>
-            <input id="email" type="email" autocomplete="email">
-            <button type="submit" class="button">Subscribe</button>
+            <label for="email">
+              Email address
+            </label>
+
+            <input
+              id="email"
+              type="email"
+              autocomplete="email">
+
+            <button
+              type="submit"
+              class="button">
+              Subscribe
+            </button>
           </form>
         </div>
+
       </div>
     </div>
   </div>
 
   <div class="lib-footer">
     <div class="wrap">
+
       <div>
-        <h2 class="t-foot">Contact</h2>
+        <h2 class="t-foot">
+          Contact
+        </h2>
+
         <p>
           Riverside Library<br>
           1 River Street<br>
@@ -181,7 +270,10 @@
       </div>
 
       <div>
-        <h2 class="t-foot">Follow us</h2>
+        <h2 class="t-foot">
+          Follow us
+        </h2>
+
         <ul>
           <li><a href="#">Newsletter</a></li>
           <li><a href="#">Events calendar</a></li>
@@ -189,17 +281,22 @@
       </div>
 
       <nav>
-        <div class="t-foot">Library information</div>
+        <div class="t-foot">
+          Library information
+        </div>
+
         <ul>
           <li><a href="#">Accessibility statement</a></li>
           <li><a href="#">Privacy</a></li>
           <li><a href="#">Jobs</a></li>
         </ul>
       </nav>
+
     </div>
   </div>
 
   <script src="../assets/demo.js"></script>
   <script src="../assets/inspector.js"></script>
+
 </body>
 </html>

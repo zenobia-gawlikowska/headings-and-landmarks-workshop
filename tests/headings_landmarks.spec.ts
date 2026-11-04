@@ -16,10 +16,17 @@ test('should have no heading and landmarks violations', async ({ page }) => {
   const axe = new AxeBuilder({ page }).withRules([
     'heading-order',
     'empty-heading',
+    'page-has-heading-one',
     'region',
     'landmark-one-main',
     'landmark-unique',
-    'landmark-one-main'
+    'landmark-one-main',
+    'landmark-banner-is-top-level',
+    'landmark-contentinfo-is-top-level',
+    'landmark-main-is-top-level',
+    'landmark-no-duplicate-banner',
+    'landmark-no-duplicate-contentinfo',
+    'landmark-no-duplicate-main',
   ]);
     const results = await axe.analyze();
     expect(results.violations).toEqual([]);
