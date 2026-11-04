@@ -104,21 +104,26 @@
 
       <div class="table-scroll">
         <table>
-          <caption class="visually-hidden">HTML elements and the landmarks they create</caption>
+          <caption>Landmark roles and their HTML elements</caption>
           <thead>
-            <tr><th scope="col">HTML</th><th scope="col">Landmark</th><th scope="col">Notes</th></tr>
+            <tr><th scope="col">ARIA role</th><th scope="col">HTML element</th><th scope="col">When the element counts as the landmark</th></tr>
           </thead>
           <tbody>
-            <tr><td><code>&lt;header&gt;</code></td><td>banner</td><td>Only when it is not inside <code>article</code>, <code>aside</code>, <code>main</code>, <code>nav</code> or <code>section</code>.</td></tr>
-            <tr><td><code>&lt;nav&gt;</code></td><td>navigation</td><td>For major groups of links. More than one? Give each a label: <code>aria-label="Main"</code>, <code>"Breadcrumb"</code>, <code>"Footer"</code>.</td></tr>
-            <tr><td><code>&lt;main&gt;</code></td><td>main</td><td>Exactly one per page. Point the skip link at it.</td></tr>
-            <tr><td><code>&lt;aside&gt;</code></td><td>complementary</td><td>Related content that makes sense on its own.</td></tr>
-            <tr><td><code>&lt;footer&gt;</code></td><td>contentinfo</td><td>Same rule as <code>header</code>.</td></tr>
-            <tr><td><code>&lt;form role="search"&gt;</code> or <code>&lt;search&gt;</code></td><td>search</td><td>The site or page search.</td></tr>
-            <tr><td><code>&lt;section&gt;</code> / <code>&lt;form&gt;</code></td><td>region / form</td><td>Only when they have an accessible name (<code>aria-labelledby</code> or <code>aria-label</code>).</td></tr>
+            <tr><th scope="row"><code>role="banner"</code></th><td><code>&lt;header&gt;</code></td><td>Only when it is not inside <code>article</code>, <code>aside</code>, <code>main</code>, <code>nav</code> or <code>section</code>. One per page: the site header.</td></tr>
+            <tr><th scope="row"><code>role="navigation"</code></th><td><code>&lt;nav&gt;</code></td><td>Always. Use it for major groups of links. More than one? Give each a label: <code>aria-label="Main"</code>, <code>"Breadcrumb"</code>, <code>"Footer"</code>.</td></tr>
+            <tr><th scope="row"><code>role="main"</code></th><td><code>&lt;main&gt;</code></td><td>Always. Exactly one per page. Point the skip link at it.</td></tr>
+            <tr><th scope="row"><code>role="complementary"</code></th><td><code>&lt;aside&gt;</code></td><td>Always at the top level. Use it for related content that makes sense on its own.</td></tr>
+            <tr><th scope="row"><code>role="contentinfo"</code></th><td><code>&lt;footer&gt;</code></td><td>Same rule as <code>header</code>: the site footer only.</td></tr>
+            <tr><th scope="row"><code>role="search"</code></th><td><code>&lt;search&gt;</code></td><td>Always. <code>&lt;search&gt;</code> is new; <code>&lt;form role="search"&gt;</code> works everywhere.</td></tr>
+            <tr><th scope="row"><code>role="region"</code></th><td><code>&lt;section&gt;</code></td><td>Only with an accessible name (<code>aria-labelledby</code> or <code>aria-label</code>). Without one it is just a group.</td></tr>
+            <tr><th scope="row"><code>role="form"</code></th><td><code>&lt;form&gt;</code></td><td>Only with an accessible name, like <code>section</code>.</td></tr>
           </tbody>
         </table>
       </div>
+      <p>
+        If you use the element, leave out the role: <code>&lt;nav role="navigation"&gt;</code> says
+        the same thing twice. Add a role only when you can’t change the element.
+      </p>
 
       <h3>The rules</h3>
       <ol>
