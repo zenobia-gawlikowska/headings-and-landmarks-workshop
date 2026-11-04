@@ -160,6 +160,8 @@ kbd {
 table { border-collapse: collapse; width: 100%; min-width: 32rem; background: var(--surface); }
 th, td { border: 1px solid var(--border); padding: 0.5rem 0.7rem; text-align: left; vertical-align: top; }
 thead th { background: var(--bg); }
+.page caption { text-align: left; font-weight: 600; padding-bottom: 0.5rem; }
+.page tbody th { font-weight: normal; }
 
 pre {
   background: var(--surface);
