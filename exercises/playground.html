@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Playground – Headings &amp; Landmarks workshop</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="site-title" href="../index.html">Headings &amp; Landmarks</a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="../index.html#exercises">Workshop</a></li>
+          <li><a href="worksheet.html">Audit worksheet</a></li>
+          <li><a href="../cheatsheet.html">Screen reader cheat sheet</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="page pg" tabindex="-1">
+    <h1>Playground: fix the broken page</h1>
+    <p class="lede">
+      Edit the HTML. The preview and the structure report update as you type.
+      Fix headings and landmarks until the report is clean, then check the preview with your
+      screen reader.
+    </p>
+
+    <div class="pg-toolbar" role="group" aria-label="Playground controls">
+      <label for="pg-starter">Starter page</label>
+      <select id="pg-starter">
+        <option value="broken.html">Autumn Reading Festival</option>
+        <option value="example.html">Summer Community Workshops</option>
+      </select>
+      <button type="button" class="button" id="pg-reset">Reset to broken version</button>
+      <button type="button" class="button" id="pg-download">Download my HTML</button>
+      <label class="pg-check"><input type="checkbox" id="pg-auto" checked> Update as I type</label>
+      <button type="button" class="button" id="pg-run">Update preview</button>
+    </div>
+
+    <div class="pg-grid">
+      <section class="pg-pane pg-code" aria-labelledby="pg-code-h">
+        <h2 id="pg-code-h">HTML</h2>
+        <label for="pg-editor" class="visually-hidden">HTML source of the page</label>
+        <textarea id="pg-editor" spellcheck="false" autocapitalize="off" autocomplete="off"
+          aria-describedby="pg-tab-hint"></textarea>
+        <p class="pg-hint">
+          <label class="pg-check"><input type="checkbox" id="pg-tab"> Tab key indents</label>
+          <span id="pg-tab-hint">Saved in this browser as you type. When “Tab key indents” is on, press <kbd>Esc</kbd> then <kbd>Tab</kbd> to leave the editor.</span>
+        </p>
+      </section>
+
+      <section class="pg-pane pg-preview" aria-labelledby="pg-preview-h">
+        <h2 id="pg-preview-h">Preview</h2>
+        <iframe id="pg-frame" title="Preview of your page" sandbox="allow-same-origin"></iframe>
+        <p class="pg-hint">
+          Screen reader tip: move into the preview and use heading (<kbd>H</kbd>) and landmark
+          (<kbd>D</kbd> in NVDA, rotor in VoiceOver) navigation as usual.
+        </p>
+      </section>
+
+      <section class="pg-pane pg-report" aria-labelledby="pg-report-h">
+        <h2 id="pg-report-h">Structure report <span class="pg-count" id="pg-count"></span></h2>
+        <div id="pg-report-body"></div>
+      </section>
+    </div>
+
+    <p class="visually-hidden" role="status" id="pg-status"></p>
+
+    <div class="callout">
+      <p>
+        The report uses the same checks as the “Show page structure” button. It approximates the
+        accessibility tree and doesn’t catch everything: a clean report is not the finish line.
+        When you’re done, compare with the <a href="answers.html">answers</a>.
+      </p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>
+        Workshop material on accessible page structure.
+        Source on <a href="https://github.com/zenobia-gawlikowska/headings-and-landmarks-workshop">GitHub</a>.
+      </p>
+    </div>
+  </footer>
+
+  <script>window.HL_INSPECTOR_NO_UI = true;</script>
+  <script src="../assets/inspector.js"></script>
+  <script src="../assets/playground.js"></script>
+</body>
+</html>

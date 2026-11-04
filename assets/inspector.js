@@ -31,7 +31,7 @@
     for (var n = el; n && n.nodeType === 1; n = n.parentElement) {
       if (n.hasAttribute(ROOT_ATTR) || n.hasAttribute("data-hl-ignore")) return true;
       if (n.hidden || n.getAttribute("aria-hidden") === "true") return true;
-      var cs = getComputedStyle(n);
+      var cs = (n.ownerDocument.defaultView || window).getComputedStyle(n);
       if (cs.display === "none" || cs.visibility === "hidden") return true;
     }
     return false;
@@ -45,7 +45,7 @@
     var ids = el.getAttribute("aria-labelledby");
     if (ids) {
       var parts = ids.split(/\s+/).map(function (id) {
-        var ref = document.getElementById(id);
+        var ref = el.ownerDocument.getElementById(id);
         return ref ? textOf(ref) : "";
       });
       var joined = parts.join(" ").trim();
@@ -100,9 +100,11 @@
 
   // ---------- scan ----------
 
-  function scan() {
+  // Scan any same-origin document (defaults to this page).
+  function scan(doc) {
+    doc = doc || document;
     var headings = [];
-    document.querySelectorAll("h1, h2, h3, h4, h5, h6, [role='heading']").forEach(function (el) {
+    doc.querySelectorAll("h1, h2, h3, h4, h5, h6, [role='heading']").forEach(function (el) {
       if (isHidden(el)) return;
       var level = el.getAttribute("role") === "heading"
         ? parseInt(el.getAttribute("aria-level") || "2", 10)
@@ -121,7 +123,7 @@
     });
 
     var landmarks = [];
-    document.querySelectorAll("header, footer, main, nav, aside, section, form, search, [role]").forEach(function (el) {
+    doc.querySelectorAll("header, footer, main, nav, aside, section, form, search, [role]").forEach(function (el) {
       if (isHidden(el)) return;
       var role = landmarkRole(el);
       if (role) landmarks.push({ el: el, role: role, name: accessibleName(el), issues: [] });
@@ -152,10 +154,10 @@
 
     // Content outside any landmark is easy to miss when navigating by landmarks.
     var orphan = 0;
-    document.querySelectorAll("body p, body li, body h1, body h2, body h3, body h4, body h5, body h6, body table").forEach(function (el) {
+    doc.querySelectorAll("body p, body li, body h1, body h2, body h3, body h4, body h5, body h6, body table").forEach(function (el) {
       if (isHidden(el)) return;
       for (var n = el; n; n = n.parentElement) {
-        if (n !== document.body && landmarkRole(n)) return;
+        if (n !== doc.body && landmarkRole(n)) return;
       }
       orphan++;
     });
@@ -163,6 +165,10 @@
 
     return { headings: headings, landmarks: landmarks, pageIssues: pageIssues };
   }
+
+  // The playground reuses the checks without the panel.
+  window.hlStructure = { scan: scan, landmarkRole: landmarkRole };
+  if (window.HL_INSPECTOR_NO_UI) return;
 
   // ---------- UI ----------
 
